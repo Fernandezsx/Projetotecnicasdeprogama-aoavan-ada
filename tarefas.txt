@@ -1,0 +1,5 @@
+1;Estudar C#;
+Ler sobre pacotes NuGet
+Alta;
+Em andamento
+

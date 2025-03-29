@@ -1,6 +1,7 @@
 using System;
-using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 public class Tarefa
 {
@@ -15,44 +16,50 @@ class Program
 {
     static void Main()
     {
-        // Criando algumas tarefas
+        // Para instaciar uma nova tarefa é aqui pois precisa usar lista
         List<Tarefa> tarefas = new List<Tarefa>
         {
             new Tarefa { Id = 1, Titulo = "Estudar C#", Descricao = "Ler sobre pacotes NuGet", Prioridade = "Alta", Status = "Em andamento" },
-            new Tarefa { Id = 2, Titulo = "Ler livro", Descricao = "Ler o livro de C# para iniciantes", Prioridade = "Média", Status = "Não Iniciado" },
-            new Tarefa { Id = 3, Titulo = "Comprar supermercado", Descricao = "Ir ao mercado e comprar itens essenciais", Prioridade = "Baixa", Status = "Concluído" },
-            new Tarefa { Id = 4, Titulo = "Fazer compras", Descricao = "Ir ao mercado e comprar itens essenciais", Prioridade = "Baixa", Status = "Nao iniciado"}
+    
         };
 
-        // Perguntar ao usuário qual tarefa ele deseja visualizar
-        Console.WriteLine("Digite o ID da tarefa que você deseja visualizar:");
-        int idTarefa = Convert.ToInt32(Console.ReadLine());
 
-        // Encontrar a tarefa com o ID fornecido
-        Tarefa tarefaEncontrada = tarefas.Find(t => t.Id == idTarefa);
-
-        // Exibir a tarefa encontrada ou uma mensagem de erro
-        if (tarefaEncontrada != null)
+        string caminhoArquivo = "tarefas.txt";
+        using (StreamWriter sw = new StreamWriter(caminhoArquivo))
         {
-            Console.WriteLine("\nTarefa encontrada:");
-            Console.WriteLine($"ID: {tarefaEncontrada.Id}");
-            Console.WriteLine($"Título: {tarefaEncontrada.Titulo}");
-            Console.WriteLine($"Descrição: {tarefaEncontrada.Descricao}");
-            Console.WriteLine($"Prioridade: {tarefaEncontrada.Prioridade}");
-            Console.WriteLine($"Status: {tarefaEncontrada.Status}");
+            foreach (var tarefa in tarefas)
+            {
+               
+                string primeiraLinha = $"{tarefa.Id};{tarefa.Titulo};";
+                string segundaLinha = $"{tarefa.Descricao}";
+                string terceiraLinha = $"{tarefa.Prioridade};";
+                string quartaLinha = $"{tarefa.Status}";
+                sw.WriteLine(primeiraLinha);
+                sw.WriteLine(segundaLinha);
+                sw.WriteLine(terceiraLinha);
+                sw.WriteLine(quartaLinha);
+                sw.WriteLine(string.Empty); // Aqui é so pra pular uma linha
+            }
+        }
 
-            // Serializando a tarefa encontrada para JSON
-            string json = JsonConvert.SerializeObject(tarefaEncontrada, Formatting.Indented);
-            
+        Console.WriteLine("Tarefas salvas em 'tarefas.txt' com sucesso!");
 
-            // Desserializando o JSON de volta para objeto
-            Tarefa tarefaDesserializada = JsonConvert.DeserializeObject<Tarefa>(json);
-        
-            
+        // Lendo as tarefas do arquivo e mostrando no console
+        Console.WriteLine("\nTarefas salvas no arquivo:");
+
+        if (File.Exists(caminhoArquivo))
+        {
+            string[] linhas = File.ReadAllLines(caminhoArquivo);
+            foreach (var linha in linhas)
+            {
+                Console.WriteLine(linha);  
+            }
         }
         else
         {
-            Console.WriteLine("Tarefa não encontrada!");
+            Console.WriteLine("Arquivo não encontrado!");
         }
+
+     
     }
 }
