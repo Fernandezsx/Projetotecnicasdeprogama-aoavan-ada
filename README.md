@@ -1,31 +1,18 @@
 
-# 
-
-Descreva brevemente o seu projeto. Aqui você pode utilizar texto e também imagens/diagramas.
-
-* O [Mermaid](https://mermaid.live/edit#pako:eNpVkE1uwjAQha9izapIZFGWWVSCBFZUVCq7mMXInjSW_Fdji6Ikp2HRg3CxmmRDZzV633uj0etBOElQQqvdRXQYIjvW3LI862bttRJ4_73fHHs9saJ4GwJ9JzrHgW1enulqMWc2DxOr-u0PGa_dOKvVFD1YGljd7NFH50_P5HhxA9s26qNzlv6TLlBO7ZoWyxYLgYFVGCYLLMFQMKhk_r5_KBxiR4Y4lHmV1GLSkQO3Y7Ziiu7zagWUMSRaQvISI9UKvwIayLf1OaskVXThfW5kKmb8AyAeX3o) é uma opção bem legal para diagramas e você consegue utilizar diretamente no README.md:
-
-[![](https://mermaid.ink/img/pako:eNpVkE1uwjAQha9izapIZFGWWVSCBFZUVCq7mMXInjSW_Fdji6Ikp2HRg3CxmmRDZzV633uj0etBOElQQqvdRXQYIjvW3LI862bttRJ4_73fHHs9saJ4GwJ9JzrHgW1enulqMWc2DxOr-u0PGa_dOKvVFD1YGljd7NFH50_P5HhxA9s26qNzlv6TLlBO7ZoWyxYLgYFVGCYLLMFQMKhk_r5_KBxiR4Y4lHmV1GLSkQO3Y7Ziiu7zagWUMSRaQvISI9UKvwIayLf1OaskVXThfW5kKmb8AyAeX3o?type=png)](https://mermaid.live/edit#pako:eNpVkE1uwjAQha9izapIZFGWWVSCBFZUVCq7mMXInjSW_Fdji6Ikp2HRg3CxmmRDZzV633uj0etBOElQQqvdRXQYIjvW3LI862bttRJ4_73fHHs9saJ4GwJ9JzrHgW1enulqMWc2DxOr-u0PGa_dOKvVFD1YGljd7NFH50_P5HhxA9s26qNzlv6TLlBO7ZoWyxYLgYFVGCYLLMFQMKhk_r5_KBxiR4Y4lHmV1GLSkQO3Y7Ziiu7zagWUMSRaQvISI9UKvwIayLf1OaskVXThfW5kKmb8AyAeX3o)
-
-- No site, vá no campo: Actions > Copy Markdown. Copie o link e cole no seu arquivo README.md e o diagrama estará lá.
-
+# Projeto de Tecnologia e Programação Avançada
+Em um ambiente de trabalho dinâmico, a organização das atividades é essencial para a produtividade. O Sistema de Gerenciamento de Tarefas permite que usuários criem, acompanhem e editem tarefas, definindo prioridades e status. Com funcionalidades como listagem, atualização e exclusão de tarefas, além do armazenamento seguro dos dados, o sistema garante mais controle e eficiência no dia a dia.
 
 ### Tecnologias Utilizadas
 
 Liste as tecnologias (linguagens, ferramentas, bibliotecas) que você utilizou para elaborar o projeto. Essa parte é importante para quando um recrutador (que não tem conhecimento de programação) acessar o seu projeto, ele vai saber só olhando a documentação quais tecnologias você já conhece!
 
 Exemplo:
-* [Golang](https://github.com/golang/go)
-* [Docker](https://www.docker.com/)
-* [MySQL](https://www.mysql.com/)
+* [Lucidchart](lucidchart.com/pages/pt)
+* [Replit](https://replit.com/)
+* [ChatGPT](https://chatgpt.com/)
+* [csharp ](C#)
 
-## Dependências e Versões Necessárias
-
-Liste as dependências necessárias para rodar o projeto e as versões que você utilizou.
-
-* Docker - Versão: X.X
-
-## Como rodar o projeto ✅
+## Como rodar o sistema ✅
 
 Descreva o passo a passo necessário para rodar sua aplicação. Lembre-se: a pessoa nunca rodou seu projeto. Não tenha medo de detalhar o máximo possível. Isso é necessário!
 
