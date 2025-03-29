@@ -4,9 +4,8 @@ Em um ambiente de trabalho dinâmico, a organização das atividades é essencia
 
 ### Tecnologias Utilizadas
 
-Liste as tecnologias (linguagens, ferramentas, bibliotecas) que você utilizou para elaborar o projeto. Essa parte é importante para quando um recrutador (que não tem conhecimento de programação) acessar o seu projeto, ele vai saber só olhando a documentação quais tecnologias você já conhece!
+O projeto foi desenvolvido utilizando diversas tecnologias e ferramentas, incluindo linguagens de programação, além de serviços e plataformas:
 
-Exemplo:
 * [Lucidchart](lucidchart.com/pages/pt)
 * [Replit](https://replit.com/)
 * [ChatGPT](https://chatgpt.com/)
