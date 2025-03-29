@@ -44,13 +44,9 @@ Esse é o local para você preencher com outras informações que possam ser imp
 Um bom exemplo: se você estiver construindo uma API, liste as rotas da aplicação e quais serão os seus retornos. Isso facilita para quem vai consumir a API.
 
 
-## ⚠️ Problemas enfrentados
+## ⚠️ Problemas enfrentados :
 
-Liste os problemas que você enfrentou construindo a aplicação e como você resolveu cada um deles. Você que desenvolveu o projeto é a pessoa que mais conhece/entende os possíveis problemas que uma pessoa pode enfrentar rodando a aplicação. Compartilhe esse conhecimento e facilite a vida da pessoa descrevendo-os.
-
-Exemplo:
-
-### Problema 1:
+### Problema 1: 
 Descrição do problema
 * Como solucionar: explicar a solução.
 
