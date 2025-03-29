@@ -5,5 +5,8 @@
     <TargetFramework>netcoreapp7.0</TargetFramework>
     <StartupObject>Program</StartupObject>
   </PropertyGroup>
-
+  <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.116" />
+  </ItemGroup>
 </Project>
