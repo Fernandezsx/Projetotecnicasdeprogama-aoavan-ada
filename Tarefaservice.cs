@@ -1,32 +1,50 @@
+
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
-namespace ProjetoTarefa{
-  public class tarefaservice 
+namespace ProjetoTarefa
+{
+  public class TarefaService 
   {
-    private list<tarefas> tarefas = new List<tarefas>();
+    private List<Tarefa> tarefas = new List<Tarefa>();
     private string caminhoArquivo = "tarefas.txt";
-    private int proximoid = 1;
+    private int proximoId = 1;
 
-    public void CriarTarefa(string descriçao, string prioridade, string status , string titulo, int id)
+    public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
     {
-      var novatarefa = new tarefas(Id = proximoId++, Titulo = titulo, Descricao = descricao, Prioridade = prioridade, Status = status);
-      tarefas.Add(novatarefa);
+      var novaTarefa = new Tarefa 
+      { 
+        Titulo = titulo,
+        Descricao = descricao,
+        Prioridade = prioridade,
+        Status = status
+      };
+      tarefas.Add(novaTarefa);
       Console.WriteLine("Tarefa criada com sucesso!");
     }
-    public void ListarTarefas(string status)
+
+    public void ListarTarefas()
     {
       Console.WriteLine("Tarefas:");
       if (!tarefas.Any())
-      console.WriteLine("Nenhuma tarefa encontrada.");
-      else {
-      tarefas.ForEach(t => Console.WriteLine($"ID: {t.Id} - Título: {t.Titulo}"));
+      {
+        Console.WriteLine("Nenhuma tarefa encontrada.");
+      }
+      else 
+      {
+        foreach(var t in tarefas)
+        {
+          Console.WriteLine($"Título: {t.Titulo}");
+        }
+      }
     }
-      public void deletarTarefa(int id)
+
+    public void DeletarTarefa(string titulo)
     {
-      var tarefa = tarefas.FirstOrDefault(t => t.Id == id);
+      var tarefa = tarefas.FirstOrDefault(t => t.Titulo == titulo);
       if (tarefa != null)
       {
         tarefas.Remove(tarefa);
@@ -36,6 +54,6 @@ namespace ProjetoTarefa{
       {
         Console.WriteLine("Tarefa não encontrada.");
       }
-    }   
+    }
   }
 }
