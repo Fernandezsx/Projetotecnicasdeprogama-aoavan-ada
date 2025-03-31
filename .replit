@@ -1,7 +1,7 @@
-entrypoint = "main.cs"
 
 hidden = ["bin", "obj"]
 modules = ["dotnet-7.0"]
+run = "dotnet run"
 
 [env]
 DOTNET_NOLOGO = "1"
@@ -15,5 +15,5 @@ requiredFiles = [".replit", "replit.nix"]
 channel = "stable-24_05"
 
 [deployment]
-run = ["dotnet", "run"]
+run = ["sh", "-c", "dotnet run"]
 deploymentTarget = "cloudrun"

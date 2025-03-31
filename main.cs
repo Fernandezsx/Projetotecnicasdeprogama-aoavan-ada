@@ -3,26 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-public class Tarefa
-{
-    public int Id { get; set; }
-    public string Titulo { get; set; }
-    public string Descricao { get; set; }
-    public string Prioridade { get; set; }
-    public string Status { get; set; }
-}
+
 
 class Program
 {
     static void Main()
     {
-        // Para instaciar uma nova tarefa é aqui pois precisa usar lista
-        List<Tarefa> tarefas = new List<Tarefa>
-        {
-            new Tarefa { Id = 1, Titulo = "Estudar C#", Descricao = "Ler sobre pacotes NuGet", Prioridade = "Alta", Status = "Em andamento" },
-    
-        };
-
 
         string caminhoArquivo = "tarefas.txt";
         using (StreamWriter sw = new StreamWriter(caminhoArquivo))
