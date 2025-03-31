@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace ProjetoTarefa{
   public class tarefaservice 
   {
-    private lis<tarefas> tarefas = new List<tarefas>();
+    private list<tarefas> tarefas = new List<tarefas>();
     private string caminhoArquivo = "tarefas.txt";
     private int proximoid = 1;
 
@@ -14,7 +14,6 @@ namespace ProjetoTarefa{
     {
       var novatarefa = new tarefas(Id = proximoId++, Titulo = titulo, Descricao = descricao, Prioridade = prioridade, Status = status);
       tarefas.Add(novatarefa);
-      SalvarTarefas();
       Console.WriteLine("Tarefa criada com sucesso!");
     }
     public void ListarTarefas(string status)
@@ -22,8 +21,8 @@ namespace ProjetoTarefa{
       Console.WriteLine("Tarefas:");
       if (!tarefas.Any())
       console.WriteLine("Nenhuma tarefa encontrada.");
-      else 
-      tarefas.ForEach(t => Console.WriteLine($"ID: {t.Id} - Título: {t.Titulo} - Descrição: {t.Descricao} - Prioridade: {t.Prioridade} - Status:" {t.Status});
+      else {
+      tarefas.ForEach(t => Console.WriteLine($"ID: {t.Id} - Título: {t.Titulo}"));
     }
       public void deletarTarefa(int id)
     {
