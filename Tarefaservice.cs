@@ -7,9 +7,10 @@ using Newtonsoft.Json;
 
 namespace ProjetoTarefa
 {
+  
   public class TarefaService 
   {
-    private List<Tarefa> tarefas = new List<Tarefa>();
+    private List<Tarefa> tarefa = new List<Tarefa>();
     private string caminhoArquivo = "tarefas.txt";
     private int proximoId = 1;
 
@@ -22,38 +23,38 @@ namespace ProjetoTarefa
         Prioridade = prioridade,
         Status = status
       };
-      tarefas.Add(novaTarefa);
+      tarefa.Add(novaTarefa);
       Console.WriteLine("Tarefa criada com sucesso!");
     }
 
     public void ListarTarefas()
-    {
-      Console.WriteLine("Tarefas:");
-      if (!tarefas.Any())
-      {
-        Console.WriteLine("Nenhuma tarefa encontrada.");
-      }
-      else 
-      {
-        foreach(var t in tarefas)
         {
-          Console.WriteLine($"Título: {t.Titulo}");
+          Console.WriteLine("Tarefas:");
+          if (!tarefa.Any())
+          {
+            Console.WriteLine("Nenhuma tarefa encontrada.");
+          }
+          else 
+          {
+            foreach(var t in tarefa)
+            {
+              Console.WriteLine($"Título: {t.Titulo}");
+            }
+          }
+        }
+
+        public void DeletarTarefa(string titulo)
+        {
+          var tarefaToRemove = tarefa.FirstOrDefault(t => t.Titulo == titulo);
+          if (tarefaToRemove != null)
+          {
+            tarefa.Remove(tarefaToRemove);
+            Console.WriteLine("Tarefa deletada com sucesso!");
+          }
+          else 
+          {
+            Console.WriteLine("Tarefa não encontrada.");
+          }
         }
       }
     }
-
-    public void DeletarTarefa(string titulo)
-    {
-      var tarefa = tarefas.FirstOrDefault(t => t.Titulo == titulo);
-      if (tarefa != null)
-      {
-        tarefas.Remove(tarefa);
-        Console.WriteLine("Tarefa deletada com sucesso!");
-      }
-      else 
-      {
-        Console.WriteLine("Tarefa não encontrada.");
-      }
-    }
-  }
-}
