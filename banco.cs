@@ -55,11 +55,11 @@ namespace ProjetoTarefa
                     if (!string.IsNullOrEmpty(linha))
                     {
                         string[] partes = linha.Split(';');
-                        Console.WriteLine($"Id: {partes[0]}");
-                        Console.WriteLine($"Título: {partes[1]}");
-                        Console.WriteLine($"Descrição: {partes[2]}");
-                        Console.WriteLine($"Prioridade: {partes[3]}");
-                        Console.WriteLine($"Status: {partes[4]}");
+                        Console.WriteLine($"Id:{partes[0]}");
+                        Console.WriteLine($"Título:{partes[1]}");
+                        Console.WriteLine($"Descrição:{partes[2]}");
+                        Console.WriteLine($"Prioridade:{partes[3]}");
+                        Console.WriteLine($"Status:{partes[4]}");
                         Console.WriteLine();
                     }
                 }
