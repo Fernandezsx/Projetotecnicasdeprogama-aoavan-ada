@@ -36,10 +36,10 @@ namespace ProjetoTarefa
             {
                 foreach (var tarefa in tarefas)
                 {
-                    sw.WriteLine($"{tarefa.Id};{tarefa.Titulo};");
-                    sw.WriteLine(tarefa.Descricao);
-                    sw.WriteLine($"{tarefa.Prioridade};");
-                    sw.WriteLine(tarefa.Status);
+                    sw.WriteLine($"Id:{tarefa.Id} ");
+                    sw.WriteLine($"Titulo:{tarefa.Titulo} ")
+                    sw.WriteLine($"Descriçao:{tarefa.Prioridade};")
+                    sw.WriteLine($"Status{tarefa.Status}")
                     sw.WriteLine(); 
                 }
             }

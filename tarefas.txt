@@ -1,15 +1,10 @@
-1;a;
-a
-a;
-a
+Id:1 
+Titulo:x 
+Descriçao:x;
+Statusx
 
-1;c;
-c
-c;
-c
-
-1;d;
-d
-d;
-d
+Id:1 
+Titulo:y 
+Descriçao:y;
+Statusy
 
