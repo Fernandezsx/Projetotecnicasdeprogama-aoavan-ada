@@ -8,7 +8,8 @@ class Program
 {
     static void Main()
     {
-        var tarefaService = new TarefaService();
+        var banco = new Banco();
+        var tarefaService = new TarefaService(banco.ObterUltimoId());
 
         // Create a new task
         Console.WriteLine("Digite o título da tarefa:");

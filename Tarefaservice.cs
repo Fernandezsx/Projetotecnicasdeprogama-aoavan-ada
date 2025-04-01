@@ -10,7 +10,12 @@ namespace ProjetoTarefa
     public class TarefaService
     {
         private List<Tarefa> tarefas = new List<Tarefa>();
-        private int proximoId = 1; // Gerador de IDs
+        private int proximoId; // Gerador de IDs
+
+        public TarefaService(int ultimoId)
+        {
+            proximoId = ultimoId + 1;
+        }
 
         public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
         {

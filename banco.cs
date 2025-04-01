@@ -7,6 +7,27 @@ namespace ProjetoTarefa
     {
         private string caminhoArquivo = "tarefas.txt";
 
+        public int ObterUltimoId()
+        {
+            int ultimoId = 0;
+            if (File.Exists(caminhoArquivo))
+            {
+                string[] linhas = File.ReadAllLines(caminhoArquivo);
+                for (int i = 0; i < linhas.Length; i++)
+                {
+                    if (linhas[i].Contains(";"))
+                    {
+                        string[] partes = linhas[i].Split(';');
+                        if (int.TryParse(partes[0], out int id))
+                        {
+                            ultimoId = Math.Max(ultimoId, id);
+                        }
+                    }
+                }
+            }
+            return ultimoId;
+        }
+
         // Método para salvar as tarefas no arquivo
         public void SalvarTarefas(List<Tarefa> tarefas)
         {
