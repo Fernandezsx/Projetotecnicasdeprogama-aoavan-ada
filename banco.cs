@@ -1,38 +1,46 @@
-
-public Class banco{
-string caminhoArquivo = "tarefas.txt";
-using (StreamWriter sw = new StreamWriter(caminhoArquivo))
+using System;
+using System.Collections.Generic;
+using System.IO;
+namespace ProjetoTarefa
 {
-    foreach (var tarefa in tarefas)
+    public class Banco
     {
+        private string caminhoArquivo = "tarefas.txt";
 
-        string primeiraLinha = $"{tarefa.Id};{tarefa.Titulo};";
-        string segundaLinha = $"{tarefa.Descricao}";
-        string terceiraLinha = $"{tarefa.Prioridade};";
-        string quartaLinha = $"{tarefa.Status}";
-        sw.WriteLine(primeiraLinha);
-        sw.WriteLine(segundaLinha);
-        sw.WriteLine(terceiraLinha);
-        sw.WriteLine(quartaLinha);
-        sw.WriteLine(string.Empty); // Aqui é so pra pular uma linha
+        // Método para salvar as tarefas no arquivo
+        public void SalvarTarefas(List<Tarefa> tarefas)
+        {
+            using (StreamWriter sw = new StreamWriter(caminhoArquivo))
+            {
+                foreach (var tarefa in tarefas)
+                {
+                    sw.WriteLine($"{tarefa.Id};{tarefa.Titulo};");
+                    sw.WriteLine(tarefa.Descricao);
+                    sw.WriteLine($"{tarefa.Prioridade};");
+                    sw.WriteLine(tarefa.Status);
+                    sw.WriteLine(); 
+                }
+            }
+            Console.WriteLine("Tarefas salvas em 'tarefas.txt' com sucesso!");
+        }
+
+        // Método para ler e exibir as tarefas do arquivo
+        public void LerTarefas()
+        {
+            Console.WriteLine("\nTarefas salvas no arquivo:");
+
+            if (File.Exists(caminhoArquivo))
+            {
+                string[] linhas = File.ReadAllLines(caminhoArquivo);
+                foreach (var linha in linhas)
+                {
+                    Console.WriteLine(linha);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Arquivo não encontrado!");
+            }
+        }
     }
-}
-
-Console.WriteLine("Tarefas salvas em 'tarefas.txt' com sucesso!");
-
-// Lendo as tarefas do arquivo e mostrando no console
-Console.WriteLine("\nTarefas salvas no arquivo:");
-
-if (File.Exists(caminhoArquivo))
-{
-    string[] linhas = File.ReadAllLines(caminhoArquivo);
-    foreach (var linha in linhas)
-    {
-        Console.WriteLine(linha);  
-    }
-}
-else
-{
-    Console.WriteLine("Arquivo não encontrado!");
-}
 }

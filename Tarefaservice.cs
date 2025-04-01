@@ -7,63 +7,30 @@ using Newtonsoft.Json;
 
 namespace ProjetoTarefa
 {
-  
-  public class TarefaService 
-  {
-    private List<Tarefa> tarefa = new List<Tarefa>();
-    private string caminhoArquivo = "tarefas.txt";
-    private int proximoId = 1;
-
-    public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
+    public class TarefaService
     {
-        var novaTarefa = new Tarefa 
-        { 
-            Id = proximoId++,
-            Titulo = titulo,
-            Descricao = descricao,
-            Prioridade = prioridade,
-            Status = status
-        };
+        private List<Tarefa> tarefas = new List<Tarefa>();
+        private int proximoId = 1; // Gerador de IDs
 
-        tarefa.Add(novaTarefa);
-
-        // Salvar a tarefa no arquivo
-        using (StreamWriter sw = new StreamWriter(caminhoArquivo, true))
+        public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
         {
-            sw.WriteLine($"{novaTarefa.Id};{novaTarefa.Titulo};{novaTarefa.Descricao};{novaTarefa.Prioridade};{novaTarefa.Status}");
-        }
-
-        Console.WriteLine("Tarefa criada e salva com sucesso!");
-    }
-
-    public void ListarTarefas()
-        {
-          Console.WriteLine("Tarefas:");
-          if (!tarefa.Any())
-          {
-            Console.WriteLine("Nenhuma tarefa encontrada.");
-          }
-          else 
-          {
-            foreach(var t in tarefa)
+            var novaTarefa = new Tarefa
             {
-              Console.WriteLine($"Título: {t.Titulo}");
-            }
-          }
+                Id = proximoId++,  // Garante que cada tarefa tem um ID único
+                Titulo = titulo,
+                Descricao = descricao,
+                Prioridade = prioridade,
+                Status = status
+            };
+
+            tarefas.Add(novaTarefa);
+            Console.WriteLine("Tarefa criada com sucesso!");
         }
 
-        public void DeletarTarefa(string titulo)
+        // Método para retornar as tarefas
+        public List<Tarefa> GetTarefas()
         {
-          var tarefaToRemove = tarefa.FirstOrDefault(t => t.Titulo == titulo);
-          if (tarefaToRemove != null)
-          {
-            tarefa.Remove(tarefaToRemove);
-            Console.WriteLine("Tarefa deletada com sucesso!");
-          }
-          else 
-          {
-            Console.WriteLine("Tarefa não encontrada.");
-          }
+            return tarefas;
         }
-      }
     }
+}
