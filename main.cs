@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +9,22 @@ class Program
     static void Main()
     {
         var tarefaService = new TarefaService();
+
+        // Create a new task
+        Console.WriteLine("Digite o título da tarefa:");
+        string titulo = Console.ReadLine();
+
+        Console.WriteLine("Digite a descrição da tarefa:");
+        string descricao = Console.ReadLine();
+
+        Console.WriteLine("Digite a prioridade (Alta/Media/Baixa):");
+        string prioridade = Console.ReadLine();
+
+        Console.WriteLine("Digite o status (Pendente/Em Andamento/Concluída):");
+        string status = Console.ReadLine();
+
+        tarefaService.CriarTarefa(descricao, prioridade, status, titulo);
+
         var tarefas = tarefaService.GetTarefas();
 
         string caminhoArquivo = "tarefas.txt";
