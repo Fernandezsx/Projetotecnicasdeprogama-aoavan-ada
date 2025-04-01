@@ -13,12 +13,12 @@ namespace ProjetoTarefa
             if (File.Exists(caminhoArquivo))
             {
                 string[] linhas = File.ReadAllLines(caminhoArquivo);
-                for (int i = 0; i < linhas.Length; i++)
+                foreach (string linha in linhas)
                 {
-                    if (linhas[i].Contains(";"))
+                    if (!string.IsNullOrEmpty(linha))
                     {
-                        string[] partes = linhas[i].Split(';');
-                        if (int.TryParse(partes[0], out int id))
+                        string[] partes = linha.Split(';');
+                        if (partes.Length > 0 && int.TryParse(partes[0], out int id))
                         {
                             ultimoId = Math.Max(ultimoId, id);
                         }
@@ -36,11 +36,7 @@ namespace ProjetoTarefa
             {
                 foreach (var tarefa in tarefas)
                 {
-                    sw.WriteLine($"Id:{tarefa.Id} ");
-                    sw.WriteLine($"Titulo:{tarefa.Titulo} ");
-                    sw.WriteLine($"Descriçao:{tarefa.Prioridade}");
-                    sw.WriteLine($"Status{tarefa.Status}");
-                    sw.WriteLine(); 
+                    sw.WriteLine($"{tarefa.Id};{tarefa.Titulo};{tarefa.Descricao};{tarefa.Prioridade};{tarefa.Status}");
                 }
             }
             Console.WriteLine("Tarefas salvas em 'tarefas.txt' com sucesso!");
@@ -56,7 +52,16 @@ namespace ProjetoTarefa
                 string[] linhas = File.ReadAllLines(caminhoArquivo);
                 foreach (var linha in linhas)
                 {
-                    Console.WriteLine(linha);
+                    if (!string.IsNullOrEmpty(linha))
+                    {
+                        string[] partes = linha.Split(';');
+                        Console.WriteLine($"Id: {partes[0]}");
+                        Console.WriteLine($"Título: {partes[1]}");
+                        Console.WriteLine($"Descrição: {partes[2]}");
+                        Console.WriteLine($"Prioridade: {partes[3]}");
+                        Console.WriteLine($"Status: {partes[4]}");
+                        Console.WriteLine();
+                    }
                 }
             }
             else
