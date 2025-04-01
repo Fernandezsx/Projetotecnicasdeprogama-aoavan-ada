@@ -16,15 +16,24 @@ namespace ProjetoTarefa
 
     public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
     {
-      var novaTarefa = new Tarefa 
-      { 
-        Titulo = titulo,
-        Descricao = descricao,
-        Prioridade = prioridade,
-        Status = status
-      };
-      tarefa.Add(novaTarefa);
-      Console.WriteLine("Tarefa criada com sucesso!");
+        var novaTarefa = new Tarefa 
+        { 
+            Id = proximoId++,
+            Titulo = titulo,
+            Descricao = descricao,
+            Prioridade = prioridade,
+            Status = status
+        };
+
+        tarefa.Add(novaTarefa);
+
+        // Salvar a tarefa no arquivo
+        using (StreamWriter sw = new StreamWriter(caminhoArquivo, true))
+        {
+            sw.WriteLine($"{novaTarefa.Id};{novaTarefa.Titulo};{novaTarefa.Descricao};{novaTarefa.Prioridade};{novaTarefa.Status}");
+        }
+
+        Console.WriteLine("Tarefa criada e salva com sucesso!");
     }
 
     public void ListarTarefas()
