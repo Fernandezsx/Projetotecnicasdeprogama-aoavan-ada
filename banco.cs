@@ -13,12 +13,12 @@ namespace ProjetoTarefa
             if (File.Exists(caminhoArquivo))
             {
                 string[] linhas = File.ReadAllLines(caminhoArquivo);
-                foreach (var linha in linhas)
+                for (int i = 0; i < linhas.Length; i++)
                 {
-                    if (!string.IsNullOrEmpty(linha))
+                    if (linhas[i].Contains(";"))
                     {
-                        string[] partes = linha.Split(';');
-                        if (partes.Length > 0 && int.TryParse(partes[0], out int id))
+                        string[] partes = linhas[i].Split(';');
+                        if (int.TryParse(partes[0], out int id))
                         {
                             ultimoId = Math.Max(ultimoId, id);
                         }
@@ -36,7 +36,10 @@ namespace ProjetoTarefa
             {
                 foreach (var tarefa in tarefas)
                 {
-                    sw.WriteLine($"{tarefa.Id};{tarefa.Titulo};{tarefa.Descricao};{tarefa.Prioridade};{tarefa.Status}");
+                    sw.WriteLine($"Id:{tarefa.Id} ");
+                    sw.WriteLine($"Titulo:{tarefa.Titulo} ");
+                    sw.WriteLine($"Descriçao:{tarefa.Prioridade}");
+                    sw.WriteLine($"Status{tarefa.Status}");
                     sw.WriteLine(); 
                 }
             }
