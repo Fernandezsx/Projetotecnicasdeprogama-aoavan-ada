@@ -30,17 +30,6 @@ class Program
         banco.SalvarTarefas(tarefas);
         banco.LerTarefas();
 
-        if (File.Exists(caminhoArquivo))
-        {
-            string[] linhas = File.ReadAllLines(caminhoArquivo);
-            foreach (var linha in linhas)
-            {
-                Console.WriteLine(linha);  
-            }
-        }
-        else
-        {
-            Console.WriteLine("Arquivo não encontrado!");
-        }
+        // A classe Banco já lê e exibe as tarefas, não precisamos fazer isso novamente
     }
 }
