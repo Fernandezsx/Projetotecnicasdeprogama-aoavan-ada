@@ -25,8 +25,6 @@ class Program
         string status = Console.ReadLine();
 
         tarefaService.CriarTarefa(descricao, prioridade, status, titulo);
-
-        var banco = new Banco();
         var tarefas = tarefaService.GetTarefas();
         banco.SalvarTarefas(tarefas);
         banco.LerTarefas();
