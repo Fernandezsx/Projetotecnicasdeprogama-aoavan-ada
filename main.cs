@@ -25,29 +25,10 @@ class Program
 
         tarefaService.CriarTarefa(descricao, prioridade, status, titulo);
 
+        var banco = new Banco();
         var tarefas = tarefaService.GetTarefas();
-
-        string caminhoArquivo = "tarefas.txt";
-        using (StreamWriter sw = new StreamWriter(caminhoArquivo))
-        {
-            foreach (var tarefa in tarefas)
-            {
-                string primeiraLinha = $"{tarefa.Id};{tarefa.Titulo};";
-                string segundaLinha = $"{tarefa.Descricao}";
-                string terceiraLinha = $"{tarefa.Prioridade};";
-                string quartaLinha = $"{tarefa.Status}";
-                sw.WriteLine(primeiraLinha);
-                sw.WriteLine(segundaLinha);
-                sw.WriteLine(terceiraLinha);
-                sw.WriteLine(quartaLinha);
-                sw.WriteLine(string.Empty); // Aqui é so pra pular uma linha
-            }
-        }
-
-        Console.WriteLine("Tarefas salvas em 'tarefas.txt' com sucesso!");
-
-        // Lendo as tarefas do arquivo e mostrando no console
-        Console.WriteLine("\nTarefas salvas no arquivo:");
+        banco.SalvarTarefas(tarefas);
+        banco.LerTarefas();
 
         if (File.Exists(caminhoArquivo))
         {

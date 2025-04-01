@@ -10,6 +10,10 @@ namespace ProjetoTarefa
         // Método para salvar as tarefas no arquivo
         public void SalvarTarefas(List<Tarefa> tarefas)
         {
+            // Primeiro limpa o arquivo
+            File.WriteAllText(caminhoArquivo, string.Empty);
+            
+            // Depois salva todas as tarefas
             using (StreamWriter sw = new StreamWriter(caminhoArquivo, true))
             {
                 foreach (var tarefa in tarefas)
