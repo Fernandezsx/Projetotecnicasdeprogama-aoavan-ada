@@ -1,19 +1,22 @@
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using ProjetoTarefa;
 
 class Program
 {
     static void Main()
     {
+        var tarefaService = new TarefaService();
+        var tarefas = tarefaService.GetTarefas();
 
         string caminhoArquivo = "tarefas.txt";
         using (StreamWriter sw = new StreamWriter(caminhoArquivo))
         {
             foreach (var tarefa in tarefas)
             {
-               
                 string primeiraLinha = $"{tarefa.Id};{tarefa.Titulo};";
                 string segundaLinha = $"{tarefa.Descricao}";
                 string terceiraLinha = $"{tarefa.Prioridade};";
@@ -43,7 +46,5 @@ class Program
         {
             Console.WriteLine("Arquivo não encontrado!");
         }
-
-     
     }
 }
