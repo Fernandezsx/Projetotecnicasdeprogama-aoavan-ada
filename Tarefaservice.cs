@@ -28,6 +28,7 @@ namespace ProjetoTarefa
                 Titulo = titulo 
             };
             tarefas.Add(novaTarefa);
+            banco.SalvarTarefas(tarefas);
             Console.WriteLine("Tarefa adicionada com sucesso!");
         }
 
