@@ -19,17 +19,12 @@ namespace ProjetoTarefa
 
         public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
         {
-            var novaTarefa = new Tarefa
-            {
-                Id = proximoId++,  // Garante que cada tarefa tem um ID único
-                Titulo = titulo,
-                Descricao = descricao,
-                Prioridade = prioridade,
-                Status = status
-            };
 
-            tarefas.Add(novaTarefa);
-            Console.WriteLine("Tarefa criada com sucesso!");
+                var novaTarefa = new Tarefa { Id = proximoId++, Descricao = descricao, 
+                Prioridade = prioridade, Status = status, Titulo = titulo };
+                tarefas.Add(novaTarefa);
+                Console.WriteLine("Tarefa adicionada com sucesso!");
+                
         }
 
         // Método para retornar as tarefas
