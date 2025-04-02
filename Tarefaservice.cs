@@ -11,7 +11,6 @@ namespace ProjetoTarefa
     {
         private List<Tarefa> tarefas = new List<Tarefa>();
         private int proximoId = 1;
-        private Banco banco = new Banco();
 
         public TarefaService()
         {
