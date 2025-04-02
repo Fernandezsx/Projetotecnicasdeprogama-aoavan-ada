@@ -15,7 +15,33 @@ namespace ProjetoTarefa
 
         public TarefaService()
         {
-            // Construtor sem parâmetros
+            CarregarTarefas();
+        }
+
+        private void CarregarTarefas()
+        {
+            string[] linhas = File.Exists("tarefas.txt") ? File.ReadAllLines("tarefas.txt") : new string[0];
+            tarefas.Clear();
+            foreach (string linha in linhas)
+            {
+                if (!string.IsNullOrEmpty(linha))
+                {
+                    string[] partes = linha.Split(';');
+                    if (partes.Length >= 5)
+                    {
+                        var tarefa = new Tarefa
+                        {
+                            Id = int.Parse(partes[0]),
+                            Titulo = partes[1],
+                            Descricao = partes[2],
+                            Prioridade = partes[3],
+                            Status = partes[4]
+                        };
+                        tarefas.Add(tarefa);
+                        proximoId = Math.Max(proximoId, tarefa.Id + 1);
+                    }
+                }
+            }
         }
 
         public void CriarTarefa(string descricao, string prioridade, string status, string titulo)
@@ -29,8 +55,14 @@ namespace ProjetoTarefa
                 Titulo = titulo 
             };
             tarefas.Add(novaTarefa);
-            banco.SalvarTarefas(tarefas);
+            SalvarTarefas();
             Console.WriteLine("Tarefa adicionada com sucesso!");
+        }
+
+        private void SalvarTarefas()
+        {
+            File.WriteAllLines("tarefas.txt", tarefas.Select(t => 
+                $"{t.Id};{t.Titulo};{t.Descricao};{t.Prioridade};{t.Status}"));
         }
 
         public void ListarTarefas()
@@ -57,6 +89,7 @@ namespace ProjetoTarefa
             if (tarefa != null)
             {
                 tarefas.Remove(tarefa);
+                SalvarTarefas();
                 Console.WriteLine("Tarefa removida com sucesso!");
             }
             else
