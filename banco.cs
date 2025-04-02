@@ -28,21 +28,6 @@ namespace ProjetoTarefa
             return ultimoId;
         }
 
-        // Método para salvar as tarefas no arquivo
-        public void SalvarTarefas(List<Tarefa> tarefas)
-        {
-            // Salva as tarefas adicionando ao arquivo existente
-            using (StreamWriter sw = new StreamWriter(caminhoArquivo, true))
-            {
-                foreach (var tarefa in tarefas)
-                {
-                    sw.WriteLine($"{tarefa.Id};{tarefa.Titulo};{tarefa.Descricao};{tarefa.Prioridade};{tarefa.Status}");
-                }
-            }
-            Console.WriteLine("Tarefas salvas em 'tarefas.txt' com sucesso!");
-        }
-
-        // Método para ler e exibir as tarefas do arquivo
         public void LerTarefas()
         {
             Console.WriteLine("\nTarefas salvas no arquivo:");
